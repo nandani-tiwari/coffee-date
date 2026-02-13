@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Secret</title>
+  <style>
+
+
+.credit-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.credit-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a4a4a; /* Subtle grey color */
+    text-decoration: none;
+    /* border-bottom: 1px dashed #ccc; Adds a slight underline effect */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.credit-link:hover {
+    color: #ff0080; /* Highlight color on hover (subtle orange) */
+    border-bottom: 1px dashed #ff0080; /* Matches hover color */
+}
+
+.credit-link:active {
+    color: #ff0080; /* Slightly darker shade for active state */
+}
+
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #FFB6C1, #FF69B4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      animation: pulse 1s infinite alternate;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      color: #333333;
+      font-size: 1.5rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h6 {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #ff0080;
+      display: none;
+      animation: shake 0.4s ease-in-out;
+    }
+
+    .active h6 {
+      display: block;
+    }
+
+    input {
+      width: calc(100% - 20px);
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      background-color: #ff0080;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    button:hover {
+      
+      animation: heartBeat 1s ease-in-out;
+    } 
+
+    .step {
+      display: none;
+      opacity: 0;
+      animation: fadeOut 1s ease-in-out forwards;
+    }
+
+    .active {
+      display: block;
+      opacity: 1;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .flex-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .flex-buttons button {
+      flex: 1;
+      max-width: 48%;
+    }
+
+    audio {
+      display: none;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+      }
+      100% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 105, 180, 1);
+      }
+    }
+
+    @keyframes heartBeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+      75% {
+        transform: translateX(-5px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1, h2 {
+        font-size: 1.2rem;
+      }
+
+      input {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 12px;
+      }
+
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "pjg95uv0yk");
+</script>
+</head>
+<body>
+  <audio loop id="bgmusic">
+    <source src="Until-I-Found-You.mp3">
+  </audio>
+  <div class="container">
+    <div class="step active" id="step0">
+     
+      <button onclick="playmusic()" id="step1submit">Start</button>
+      <!-- <h6 id="perror">Incorrect password </h6> -->
+    </div>
+
+    <div class="step" id="step1">      <h2 id="datename"></h2>
+      <button onclick="showNextStep(2)">Click here to know a secret 🤫</button>
+    </div>
+
+    <div class="step" id="step2">
+      <h2>Will you tell anyone? 🙊</h2>
+      <button onclick="showNextStep(3)">No I won't :)</button>
+    </div>
+
+    <div class="step" id="step3">
+        <h2>Promise? 😏</h2>
+        <button onclick="showNextStep(4)">Promise!</button>
+    </div>
+
+    <div class="step" id="step4">
+      <h2>Okay, I trust you 😌</h2>
+      <button onclick="showNextStep(5)">Click here to unlock secret 🔏</button>
+    </div>
+
+    <div class="step" id="step5">
+        <h2>Secret?</h2>
+      <h2>I know the perfect spot for coffee ☕ Wanna join?</h2>
+      <div class="flex-buttons">
+        <button onclick="showNextStep(6)">Yes, of course!</button>
+        <button id="no-button" onclick="handleNoClick()">No</button>
+      </div>
+    </div>
+
+    <div class="step" id="step6">
+      <h2>Select Date ☕</h2>
+      
+      <form name="submit-to-google-sheet">
+        <input type="datetime-local" name="Email" id="datetime"  required>
+        <input type="text" name="Pass" id="datetime" placeholder="Leave a message" required>
+         
+        <button type="submit">Confirm</button>
+        
+      </form>
+      
+      
+      
+      <!-- <div>
+        <input type="datetime-local" id="datetime">
+        <button onclick="submitDate()">Submit</button>
+      </div> -->
+    </div>
+
+    <div class="step" id="step7">
+      <h2 id="showdate"></h2>
+      <div>
+        <button onclick="showPickUpLines()">It's a Date 😊</button>
+        <div class="credit-container">
+            <a href="https://www.linkedin.com/in/nandanitiwari01/" target="_blank" class="credit-link">
+                See you there!!
+            </a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script>
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwm7mjjPf33VMc5BXuWiWGnT42SwY01C-fkGRGPiGSzuiWnCydbeL2FD_MZhulFaW__/exec'
+        const form = document.forms['submit-to-google-sheet']
+        
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          submitDate();
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+            
+        })
+
+
+        function handleEnterKey(event) {
+  if (event.key === 'Enter') {
+    console.log('Enter key pressed!');
+    playmusic();
+    // Your logic here
+  }
+}
+
+        
+        document.addEventListener('keydown', handleEnterKey);
+
+    document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function () {
+      // Temporarily disable the button to prevent rapid clicking
+      this.style.pointerEvents = 'none';
+
+      // Re-enable the button after a short delay (300ms)
+      setTimeout(() => {
+        this.style.pointerEvents = 'auto';
+      }, 300); // 300ms delay before re-enabling
+    });
+  });
+    let noClickCount = 0;
+
+    function showNextStep(stepNumber) {
+      document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+      document.getElementById(`step${stepNumber}`).classList.add('active');
+    }
+
+    function playmusic() {
+      const audioElement = document.getElementById("bgmusic");
+     
+      const error = document.getElementById("perror");
+
+
+      if (true) {
+        if (audioElement.paused) {
+          audioElement.play();
+        }
+        document.getElementById("datename").innerHTML = "Hey there!";
+        showNextStep(1);
+        document.removeEventListener('keydown', handleEnterKey);
+        // Heartbeat transition when correct password
+        document.getElementById('step0').style.animation = 'heartBeat 1s ease-in-out';
+      } else {
+        error.style.display = "block";
+        error.classList.add("shake");
+      }
+    }
+    
+    function handleNoClick() {
+      noClickCount++;
+      const noButton = document.getElementById("no-button");
+
+      if (noClickCount === 1) {
+        alert("Error 404: You clicked the wrong button 🤖");
+      } else if (noClickCount === 2) {
+        alert("You're testing my patience! 😬");
+      } 
+      else if (noClickCount === 3) {
+        alert("One more time and I’ll cry 😭");
+      }  
+     
+      else if (noClickCount === 4) {
+        alert("I dare you to click No again 😤");
+      }
+      
+      else if (noClickCount === 5) {
+        noButton.style.display = "none";
+      }
+
+      
+    }
+
+    function submitDate() {
+      console.log("Test");
+      
+      const dateInput = document.getElementById("datetime").value;
+      const showDate = document.getElementById("showdate");
+
+      if (!dateInput) {
+        alert("Please select a date!");
+        return;
+      }
+                                                                      
+      const formattedDate = new Date(dateInput).toLocaleString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+      showDate.textContent = `${formattedDate}`;
+      alert("Are we at an airport? Because my heart is taking off ✈️💖");
+      showNextStep(7);
+
+    }
+    
+    let i=0;
+    function showPickUpLines() {
+      const pickupLines = ["If you were paracetamol, I’d never miss a dose 💊😊",
+    "If we were coffee, we’d be a perfect blend ☕❤️",
+    "If I were a cat, I’d spend all 9 lives in your lap 😊🐾",
+    
+    "Do you believe in parallel universes? In one of them, we’re already on a date 🌌❤️",
+    "Your story’s missing a character like me 📖😉",
+    "I’m like your favorite song—you’ll want to keep me on repeat 🎶🔁",
+    
+    "If we were socks, we’d make a perfect pair 🧦❤️",
+    "You must be a prescription, because you're exactly what the doctor ordered 💊💖",
+    
+    "You must be the square root of negative one, because you can’t be real 🧮😜",
+    "Do you have a pencil? Because I want to draw you closer ✏️❤️",
+    "Do you have a compass? Because I keep getting lost in your eyes 🧭👁️",
+    
+    "Are you my morning coffee? Because you’re the best part of my day 🌅☕",
+  "If I were a leaf, I’d want to fall right into your arms 🍂💞",
+  "If I could rewrite the stars, I’d make sure our paths always cross 🌌🔀",
+  "Can I have a break with you? You’re sweeter than a KitKat 🍫💖"
+
+];
+
+     const randomLine = pickupLines[Math.floor(Math.random() * pickupLines.length)];
+        alert(randomLine);
+      
+      
+        
+     
+
+      
+ 
+    }
+  </script>
+</body>
+</html>
